@@ -82,6 +82,28 @@
             "debugOptions": [
                 "RedirectOutput"
             ]
+        },
+        {
+            "name": "demo pp kitti",
+            "type": "python",
+            "request": "launch",
+            "program": "./demo.py",
+            "args": [
+                "--cfg_file",
+                "cfgs/kitti_models/pointpillar.yaml",
+                "--ckpt",
+                "../output/kitti_models/pointpillar/default/ckpt/checkpoint_epoch_100.pth",
+                "--data_path",
+                "/home/iat/ws_jinhan/OpenPCDet/data/kitti/training/velodyne/000002.bin"
+            ],
+            "cwd": "/home/iat/ws_jinhan/OpenPCDet/tools",
+            "stopOnEntry": false,
+            "python": "/usr/bin/python3",
+            // "python": "/home/iat/anaconda3/envs/pcdet/bin/python",
+            "env": {},
+            "debugOptions": [
+                "RedirectOutput"
+            ]
         }
     ]
 }
