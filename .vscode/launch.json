@@ -3,21 +3,60 @@
     // Hover to view descriptions of existing attributes.
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
-    "configurations": [                                   
+    "configurations": [                  
         {
-            "name": "train centerpoint",
+            "name": "train centerpoint_kitti",
             "type": "python",
             "request": "launch",
             "program": "/home/iat/ws_jinhan/OpenPCDet/tools/train.py",
             "args": [
                 "--cfg_file",
-                "cfgs/custom_models/centerpoint.yaml",
-                "--batch_size=2",
-                "--epochs=300"
+                "cfgs/kitti_models/centerpoint.yaml",
+                "--batch_size=1",
+                "--epochs=10"
             ],
             "cwd": "/home/iat/ws_jinhan/OpenPCDet/tools",
             "stopOnEntry": false,
-            "python": "/usr/bin/python3",
+            "python": "/home/iat/anaconda3/envs/pcdet/bin/python",
+            "env": {},
+            "debugOptions": [
+                "RedirectOutput"
+            ]
+        },                 
+        {
+            "name": "train centerpoint_pillar",
+            "type": "python",
+            "request": "launch",
+            "program": "/home/iat/ws_jinhan/OpenPCDet/tools/train.py",
+            "args": [
+                "--cfg_file",
+                "tools/cfgs/custom_models/centerpoint_pillar.yaml",
+                "--batch_size=1",
+                "--epochs=300"
+            ],
+            "cwd": "/home/iat/ws_jinhan/OpenPCDet/",
+            "stopOnEntry": false,
+            "python": "/home/iat/anaconda3/envs/pcdet/bin/python",
+            "env": {},
+            "debugOptions": [
+                "RedirectOutput"
+            ]
+        },
+        {
+            "name": "train centerpoint_voxel",
+            "type": "python",
+            "request": "launch",
+            "program": "/home/iat/ws_jinhan/OpenPCDet/tools/train.py",
+            "args": [
+                "--cfg_file",
+                "tools/cfgs/custom_models/centerpoint_voxel.yaml",
+                "--batch_size=1",
+                "--epochs=100"
+            ],
+            "cwd": "/home/iat/ws_jinhan/OpenPCDet/",
+            "stopOnEntry": false,
+            "python": "/home/iat/anaconda3/envs/pcdet/bin/python",
+            // "python": "/usr/bin/python3",
             "env": {},
             "debugOptions": [
                 "RedirectOutput"
