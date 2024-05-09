@@ -1,12 +1,13 @@
 DATASET: 'CustomDataset'
 DATA_PATH: './data/custom'
 
-POINT_CLOUD_RANGE: [-75.2, -75.2, -3, 75.2, 75.2, 1]
+POINT_CLOUD_RANGE: [-75.2, -75.2, -2, 75.2, 75.2, 4]
 
 MAP_CLASS_TO_KITTI: {
-    'Boat_1': 'Car',
-    'Buoy': 'Pedestrian',
-    'Boat_2': 'Cyclist',
+    'Boat_L': 'Car',
+    'Boat_M': 'Pedestrian',
+    'Boat_S': 'Cyclist',
+    'Buoy': 'Van'
 }
 
 DATA_SPLIT: {
@@ -22,8 +23,8 @@ INFO_PATH: {
 POINT_FEATURE_ENCODING: {
     encoding_type: absolute_coordinates_encoding,
     used_feature_list: ['x', 'y', 'z'],
-    src_feature_list: ['x', 'y', 'z'],
-    #src_feature_list: ['x', 'y', 'z', 'intensity'],
+    #src_feature_list: ['x', 'y', 'z'],
+    src_feature_list: ['x', 'y', 'z', 'intensity'],
 }
 
 DATA_AUGMENTOR:
@@ -34,11 +35,11 @@ DATA_AUGMENTOR:
           DB_INFO_PATH:
               - custom_dbinfos_train.pkl
           PREPARE: {
-             filter_by_min_points: ['Boat_1:5', 'Buoy:5', 'Boat_2:10'],
+             filter_by_min_points: ['Boat_L:10', 'Boat_M:10', 'Boat_S:10', 'Buoy:5'],
           }
 
-          SAMPLE_GROUPS: ['Boat_1:20', 'Buoy:15', 'Boat_2:15']
-          NUM_POINT_FEATURES: 3
+          SAMPLE_GROUPS: ['Boat_L:10', 'Boat_M:10', 'Boat_S:10', 'Buoy:5']
+          NUM_POINT_FEATURES: 4
           DATABASE_WITH_FAKELIDAR: False
           REMOVE_EXTRA_WIDTH: [0.0, 0.0, 0.0]
           LIMIT_WHOLE_SCENE: True
